@@ -699,6 +699,22 @@ body {
         font-size: 3em;
     }
 }
+/* Ensure "Explore Our Features" text fits within phone screen width */
+@media (max-width: 768px) {
+  .explore-features-text {
+    max-width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  /* Center <p> description on Hero Page for phone devices */
+  .hero-page p {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 90%;
+  }
+}
+
 
 @media screen and (max-width: 992px) {
     .hero {
