@@ -211,6 +211,7 @@ body {
     background-attachment: fixed; /* Makes the background fixed for a parallax-like effect */
 }
 
+
 /* Adjust feature container spacing */
 .feature-container {
     margin-top: 20px;
@@ -303,6 +304,10 @@ body {
         transform: translateY(0);
     }
 }
+.features-content p{
+    font-family: 'inter';
+    font-size: 30px;
+}
 /* Add before the feature-container styles */
 .feature-card-wrapper.full-width {
     position: relative;
@@ -325,7 +330,9 @@ body {
     height: 200px;
     width: 100%;
 }
-
+.features-heading{
+    font-size: 70px;
+}
 .feature-card-wrapper.full-width .feature-content {
     flex: 1;
     text-align: center; /* Changed from left-aligned to center */
@@ -365,6 +372,7 @@ body {
     height: auto;
     margin: 0 auto 15px;
 }
+
 
 
 
@@ -683,9 +691,18 @@ body {
         min-height: 100vh;
         padding: 120px 5% 60px;
     }
-
+    .features-content p{
+        font-family: 'inter';
+        font-size: 20px;
+    }
     .hero h1.recruity {
         font-size: 140px;
+    }
+    .hero p {
+        font-size: 1.5em;
+        margin-right: 20px 0;
+        margin-left: 20px 0;
+        max-width: 100%;
     }
 
     .hero-image {
@@ -698,6 +715,9 @@ body {
         right: 5%;
         font-size: 3em;
     }
+    .feature-content{
+        font-size: 20px;
+    }
 }
 /* Ensure "Explore Our Features" text fits within phone screen width */
 @media (max-width: 768px) {
@@ -705,7 +725,39 @@ body {
     max-width: 100%;
     text-align: center;
     word-wrap: break-word;
+    font-size: 2rem; /* Reduced font size for mobile */
+    padding: 0 15px; /* Add padding on the sides */
+    margin: 0 auto; /* Center the text */
   }
+  
+  
+  /* Add a class for the features section heading if it doesn't exist */
+  .features h2 {
+    font-size: 2.2rem; /* Adjust heading size for mobile */
+    max-width: 100%;
+    padding: 0 10px;
+    word-break: break-word; /* Ensures words break properly */
+  }
+  .features-content p{
+    font-family: 'inter';
+    font-size: 20px;
+    margin-right: 20px 0;
+    margin-left: 20px 0;
+}
+  
+  .hero p {
+    font-size: 1.5em;
+    margin-top: 20px 0;
+    max-width: 100%;
+  }
+.review-container {
+    position: relative;
+    font-size: 20px;
+    top: 0;
+    left: 0;
+    transform: none;
+    margin-top: 10px auto;
+}
 
   /* Center <p> description on Hero Page for phone devices */
   .hero-page p {
@@ -722,6 +774,11 @@ body {
         text-align: center;
         padding: 120px 5% 60px;
     }
+    .hero p {
+        font-size: 1.5em;
+        margin: 20px 0;
+        max-width: 100%;
+    }
 
     .text-section {
         padding-left: 0;
@@ -734,10 +791,11 @@ body {
 
     .review-container {
         position: relative;
+        font-size: 20px;
         top: 0;
         left: 0;
         transform: none;
-        margin: 40px auto;
+        margin-top: 40px auto;
     }
 
     /* Feature cards stacking */
@@ -840,6 +898,51 @@ html, body {
     /* Remove the incorrectly nested media query */
 }
 
+/*iapd*/
+@media screen and (min-width: 1024px)and (max-width: 1200px){
+    .review-container {
+        position: relative;
+        font-size: 1.5em;
+        top: auto;
+        left: auto;
+        right: auto;
+        transform: none;
+        margin: 10px auto 0; /* Fixed margin syntax */
+        margin-left: 20px;
+        width: 100%;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    .features-content .features-description{
+        font-size: 30px;
+    }
+    .feature-card-wrapper {
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .feature-card-wrapper.full-width {
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .feature-card-wrapper.full-width .feature-card {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+        margin: 0 auto;
+    }
+    
+}
+
 /* For the SEO card specifically */
 .feature-card-wrapper:nth-child(4) .feature-card {
     background: url('seo.jpg') no-repeat center center;
@@ -917,3 +1020,5 @@ html, body {
     position: relative;
     z-index: 2;
 }
+
+
