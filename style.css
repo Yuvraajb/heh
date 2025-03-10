@@ -1,0 +1,903 @@
+/* style.css */
+/* Add after General Styles and before Hero Section */
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center; /* Add this to center the links */
+    gap: 30px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+    background: transparent;
+    width: auto; /* Let it size naturally */
+    max-width: 90%; /* Prevent overflow on small screens */
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(179, 114, 207, 0.2);
+    border: 1px solid rgba(179, 114, 207, 0.1);
+}
+
+.navbar a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #B372CF;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+/* Hero Section (Unchanged) */
+.hero {
+    height: 120vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    padding: 0 20px;
+    background-image: url('bg.gif');
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat; /* Ensures repetition if needed */
+    overflow: hidden;
+    position: relative;
+}
+
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: auto;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.99));
+    z-index: 1;
+}
+
+.text-section {
+    flex: 1;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1.5s ease forwards;
+    animation-delay: 0s;
+    padding-left: 20px;
+    z-index: 200;
+}
+
+.hero-image {
+    width: 650px;
+    height: auto;
+    margin-left: -100px;
+    position: relative;
+    z-index: 1;
+    opacity: 0;
+    animation: slideIn 1.5s ease forwards;
+    animation-delay: 0s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.hero h1 {
+    font-family: 'inter';
+    font-weight: 400;
+    font-size: 82px;
+}
+
+.hero h1.recruity {
+    font-weight: 500;
+    font-size: 185px;
+    background: linear-gradient(180deg, #B372CF, #FFFFFF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 1.6em;
+    margin: 20px 0;
+    max-width: 50%;
+}
+
+.hero .schedule-call {
+    padding: 15px 35px;
+    font-size: 1.6em;
+    text-decoration: none;
+    background: linear-gradient(135deg, #B372CF, #8e44ad);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(179, 114, 207, 0.3);
+    z-index: 200;
+    margin-top: 30px; /* Add this line to create space */
+    display: inline-block; /* Add this to maintain proper spacing */
+}
+
+.hero .schedule-call:hover {
+    background: linear-gradient(135deg, #8e44ad, #B372CF);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(179, 114, 207, 0.4);
+
+}
+
+/* Review Container (Unchanged) */
+.review-container {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 4em;
+    color: rgb(231, 227, 227);
+    position: absolute;
+    left: calc(50% + 400px);
+    top: 40%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 2;
+}
+
+.cursor {
+    display: inline-block;
+    width: 10px;
+    height: 1em;
+    background-color: rgb(231, 227, 227);
+    animation: blink 1s step-end infinite, glow 1.5s infinite alternate;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(231, 227, 227, 0.5), 0 0 10px rgba(231, 227, 227, 0.5), 0 0 15px rgba(231, 227, 227, 0.5); }
+    100% { text-shadow: 0 0 10px rgba(231, 227, 227, 1), 0 0 20px rgba(231, 227, 227, 1), 0 0 30px rgba(231, 227, 227, 1); }
+}
+
+/* Updated Features Section */
+.features {
+    padding: 50px 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    min-height: 100vh;
+    position: relative;
+    background: url('bg.jpg') no-repeat center center; /* Added direct background image */
+    background-size: cover;
+    background-attachment: fixed; /* Makes the background fixed for a parallax-like effect */
+}
+
+/* Adjust feature container spacing */
+.feature-container {
+    margin-top: 20px;
+}
+
+.features::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+   /* background: rgba(0, 0, 0, 0.7); */
+    z-index: 1;
+}
+
+/* .abstract-shape {
+    position: absolute;
+    background: rgba(55, 24, 102, 0.4);
+    opacity: 0.6;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    animation: float 8s infinite alternate;
+}
+
+.shape1 {
+    width: 180px;
+    height: 180px;
+    top: 15%;
+    left: 25%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.shape2 {
+    width: 220px;
+    height: 220px;
+    top: 35%;
+    left: 65%;
+    clip-path: circle(50% at 50% 50%);
+    background: linear-gradient(60deg, rgba(55, 24, 102, 0.6), rgba(0, 0, 0, 0.6));
+}
+
+.shape3 {
+    width: 140px;
+    height: 140px;
+    top: 55%;
+    left: 45%;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+} */
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-15px) rotate(3deg); }
+}
+
+.feature-card-wrapper {
+    position: absolute;
+    width: 300px;
+    height: 340px;
+}
+.feature-card-wrapper:nth-child(3) { left: 10%; top: 50%; transform: rotate(6deg); z-index: 2; }
+.feature-card-wrapper:nth-child(4) { left: 10%; top: 50%; transform: rotate(6deg); z-index: 2; }
+.feature-card-wrapper:nth-child(5) { left: 40%; top: 50%; transform: rotate(-4deg); z-index: 1; }
+.feature-card-wrapper:nth-child(6) { left: 70%; top: 50%; transform: rotate(4deg); z-index: 2; }
+
+.feature-card {
+    /* background: radial-gradient(circle at top left, #7a5ca9e4, #7a5ca9e4);  */
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    /* color: white; */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    height: 100%;
+    /* box-shadow: 0px 4px 20px rgba(255, 255, 255, 0.2); */
+    opacity: 0; /* Initial state: hidden */
+    transform: translateY(20px); /* Initial state: shifted down */
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Add before the feature-container styles */
+.feature-card-wrapper.full-width {
+    position: relative;
+    width: 100%;
+    max-width: 1400px;
+    height: auto;
+    margin: 40px 0 60px 0;
+    transform: none;
+    z-index: 3;
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+
+}
+.feature-card-wrapper.full-width .feature-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start; /* This is fine for the content inside */
+    padding: 20px 60px;
+    height: 200px;
+    width: 100%;
+}
+
+.feature-card-wrapper.full-width .feature-content {
+    flex: 1;
+    text-align: center; /* Changed from left-aligned to center */
+    padding: 0 40px;
+    margin-left: 20px; /* Add some margin for better spacing from the image */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center the content */
+}
+
+
+
+.feature-card-wrapper.full-width .feature-content h3 {
+    font-family: 'Inter';
+    font-weight: 10000;
+
+    display: none; /* Hide the premium features heading */
+}
+
+.feature-card-wrapper.full-width .feature-content p {
+    font-family: 'Inter';
+    font-weight: 1000;
+    font-size: 1.4em; /* Increased from 1.2em for better visibility */
+    line-height: 1.6;
+    text-align: center; /* Changed from right to center */
+    max-width: 800px; /* Increased from 600px to allow more space for centered text */
+    margin: 0 auto; /* Center the paragraph horizontally */
+}
+
+.feature-card-wrapper.full-width img {
+    width: 160px; /* Reduced from 200px */
+    height: auto;
+}
+
+.feature-card img {
+    width: 150px; /* Added for regular feature card images */
+    height: auto;
+    margin: 0 auto 15px;
+}
+
+
+
+
+/* .feature-card:hover {
+    transform: scale(1.05) rotate(0deg);
+    box-shadow: 0 0 25px rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+} */
+
+.feature-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.feature-content p {
+    font-size: 1em;
+    opacity: 0.9;
+}
+
+/* .feature-stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+} */
+
+/* .feature-star {
+    position: absolute; /* Ensures stars are positioned relative to their container */
+    background: rgba(255, 255, 255, 0.8); /* Example styling; adjust as needed */
+    border-radius: 50%;
+    animation: twinkle 1.5s infinite alternate, moveStar 10s linear infinite;
+} */
+
+@keyframes twinkle {
+    from {
+        opacity: 0.5;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+@keyframes moveStar {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(calc(var(--star-direction-x) * 100px), calc(var(--star-direction-y) * 100px));
+    }
+}
+/* Modern Dark Pricing Section with Gradient and Tilt */
+
+.pricing-container {
+    display: flex;
+    justify-content: center;
+    padding: 80px 20px; /* Increased padding */
+    background: url('pricing-bg.jpeg') no-repeat center center; /* Changed to image background */
+    background-size: cover; /* Ensure it covers the entire container */
+    overflow: hidden; /* To contain potential tilt overflow */
+    position: relative; /* For absolute positioning of pseudo-elements or tilt context */
+}
+
+.pricing-card {
+    padding: 50px; /* Increased padding */
+    border-radius: 20px; /* More rounded corners */
+    width: 450px; /* Slightly wider card */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* White shadow for dark background */
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), box-shadow 0.3s ease; /* Enhanced transition */
+    background: linear-gradient(160deg, #663ba7 100%, #663ba7 100%); /* Black to Purple gradient */
+    color: #fff; /* Light text color for dark background */
+    position: relative; /* For tilt effect context */
+}
+
+.pricing-card:hover {
+    transform: translateY(-3px); /* Even more lift on hover */
+    box-shadow: 0 15px 45px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
+}
+
+.pricing-card h2 {
+    font-size: 3rem; /* Larger title */
+    margin-bottom: 20px;
+    color: #fff; /* White title color */
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); /* Deeper text shadow for dark background */
+    font-weight: 600; /* Bolder title */
+}
+
+.pricing-card .subtitle {
+    font-size: 2rem; /* Larger subtitle */
+    color: #ddd; /* Light grey subtitle */
+    margin-bottom: 30px;
+    font-weight: 300; /* Lighter subtitle font weight */
+}
+
+.pricing-card h3 {
+    font-size: 3.5rem; /* Even larger price */
+    color: #fff; /* White price color */
+    margin-bottom: 30px;
+    font-weight: 700; /* Even bolder price */
+    letter-spacing: -1.5px; /* Tighter letter spacing for price */
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); /* Deeper text shadow for price */
+}
+
+.pricing-card h3 span {
+    font-size: 1.3rem; /* Slightly larger month text */
+    color: #ccc; /* Lighter month text */
+}
+
+.pricing-features {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #eee; /* Very light feature text */
+    margin-bottom: 40px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.pricing-features li {
+    margin-bottom: 15px; /* Increased spacing between list items */
+    position: relative;
+    padding-left: 30px; /* More space for checkmark */
+}
+
+.pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 2px; /* Adjusted top for better vertical alignment */
+    color: #8e44ad; /* A brighter purple for checkmark */
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); /* Shadow on checkmark for visibility */
+}
+.pricing-side-image {
+    width: 180px;
+    height: 180px;
+    opacity: 0.8;
+    transition: transform 0.5s ease;
+    object-fit: contain;
+    transform: translateY(10px); /* Added vertical offset */
+}
+
+.pricing-side-image.left {
+    width: 240px;  /* Increased from 180px */
+    height: 300px; /* Increased from 180px */
+    transform: translate(-10px, 30px); /* Combined horizontal and vertical offset */
+}
+
+.pricing-side-image.right {
+    width: 240px;  /* Increased from 180px */
+    height: 300px; /* Increased from 180px */
+    transform: translate(10px, 40px); /* Combined horizontal and vertical offset */
+}
+
+.pricing-side-image:hover {
+    transform: translatez(30px); /* Adjusted hover state */
+}
+
+/* Adjust container gap to maintain proper spacing */
+.pricing-container {
+    gap: 220px; /* Reduced from 40px to keep proportions */
+}
+.pricing-card {
+    padding: 50px; /* Increased padding */
+    border-radius: 20px; /* More rounded corners */
+    width: 450px; /* Slightly wider card */
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15); /* White shadow for dark background */
+    text-align: center;
+    transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), box-shadow 0.3s ease; /* Enhanced transition */
+    background: linear-gradient(160deg, #1a1a1a 0%, #663ba7 100%); /* Black to Purple gradient */
+    color: #fff; /* Light text color for dark background */
+    position: relative; /* For tilt effect context */
+}
+
+.pricing-card:hover {
+    transform: translateY(-8px); /* Even more lift on hover */
+    box-shadow: 0 15px 45px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
+}
+
+.pricing-card h2 {
+    font-size: 3rem; /* Larger title */
+    margin-bottom: 20px;
+    color: #fff; /* White title color */
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); /* Deeper text shadow for dark background */
+    font-weight: 600; /* Bolder title */
+}
+
+.pricing-card .subtitle {
+    font-size: 1.2rem; /* Larger subtitle */
+    color: #ddd; /* Light grey subtitle */
+    margin-bottom: 30px;
+    font-weight: 300; /* Lighter subtitle font weight */
+}
+
+.pricing-card h3 {
+    font-size: 3.5rem; /* Even larger price */
+    color: #fff; /* White price color */
+    margin-bottom: 30px;
+    font-weight: 700; /* Even bolder price */
+    letter-spacing: -1.5px; /* Tighter letter spacing for price */
+    text-shadow: 0 2px 2px rgba(0, 0, 0, 0.4); /* Deeper text shadow for price */
+}
+
+.pricing-card h3 span {
+    font-size: 1.3rem; /* Slightly larger month text */
+    color: #ccc; /* Lighter month text */
+}
+
+.pricing-features {
+    text-align: left;
+    font-size: 1.1rem;
+    color: #eee; /* Very light feature text */
+    margin-bottom: 40px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.pricing-features li {
+    margin-bottom: 15px; /* Increased spacing between list items */
+    position: relative;
+    padding-left: 30px; /* More space for checkmark */
+}
+
+.pricing-features li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 2px; /* Adjusted top for better vertical alignment */
+    color: #8e44ad; /* A brighter purple for checkmark */
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.5); /* Shadow on checkmark for visibility */
+}
+.free-text {
+    position: relative;
+    font-family: 'nixie one';
+    font-size: 1.8em;
+    color: #B372CF;
+    opacity: 0;
+    margin-top: 5px;
+    position: relative;
+    display: block;
+}
+
+.free-text::after {
+    content: '';
+    display: inline-block;
+    width: 140px;
+    height: 140px;
+    background: url('arrow.gif') no-repeat center center;
+    background-size: contain;
+    margin-left: 5px;
+    opacity: 0;
+    vertical-align: middle;
+    position: relative;
+    top:-20px;
+    left: -2px;
+
+    transform: translateY(-50%);
+}
+
+
+.free-text.animate {
+    animation: fadeInText 0.5s ease forwards;
+}
+
+.free-text.animate::after {
+    animation: fadeInArrow 0.5s ease forwards 0.5s;
+}
+
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInArrow {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
+    .hero {
+        background-size: cover;
+        height: auto;
+        min-height: 100vh;
+        padding: 120px 5% 60px;
+    }
+
+    .hero h1.recruity {
+        font-size: 140px;
+    }
+
+    .hero-image {
+        width: 500px;
+        margin-left: 0;
+    }
+
+    .review-container {
+        left: auto;
+        right: 5%;
+        font-size: 3em;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 120px 5% 60px;
+    }
+
+    .text-section {
+        padding-left: 0;
+    }
+
+    .hero-image {
+        width: 400px;
+        margin: 40px auto 0;
+    }
+
+    .review-container {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin: 40px auto;
+    }
+
+    /* Feature cards stacking */
+    .feature-card-wrapper {
+        position: relative;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .feature-card-wrapper.full-width {
+        margin: 20px auto;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .feature-card-wrapper.full-width .feature-card {
+        flex-direction: column;
+        height: auto;
+        padding: 30px;
+        margin: 0 auto;
+    }
+
+    .features {
+        padding: 50px 5%;
+    }
+
+
+    .pricing-container {
+        padding: 50px 5%;
+    }
+
+    .pricing-card {
+        width: 90%;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+}
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    position: relative;
+}
+
+/* Fix the nested media query issue */
+@media screen and (max-width: 576px) {
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .hero h1.recruity {
+        font-size: 90px;
+    }
+
+    .hero p {
+        font-size: 1.5em;
+    }
+
+    .hero-image {
+        width: 100%;
+        margin: 40px 0;
+        max-width: 100vw;
+    }
+
+    /* Add this to ensure proper background handling */
+    .hero {
+        background-position: center;
+        padding: 100px 0 60px;
+        width: 100%;
+    }
+
+    .navbar {
+        width: 90%;
+        padding: 10px 20px;
+        gap: 15px;
+    }
+
+    .navbar a {
+        font-size: 0.9em;
+    }
+
+
+    .feature-card-wrapper.full-width .feature-content p {
+        text-align: center;
+        max-width: 100%;
+    }
+
+    /* Fix any potential overflow in feature cards */
+    .feature-card-wrapper,
+    .feature-card-wrapper.full-width {
+        width: 90%;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Remove the incorrectly nested media query */
+}
+
+/* For the SEO card specifically */
+.feature-card-wrapper:nth-child(4) .feature-card {
+    background: url('seo.jpg') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+/* Add an overlay to ensure text remains readable */
+.feature-card-wrapper:nth-child(4) .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: linear-gradient(rgba(55, 24, 102, 0.5), rgba(0, 0, 0, 0.85)); */
+    border-radius: 15px;
+    z-index: 1;
+}
+
+/* Ensure content appears above the overlay */
+.feature-card-wrapper:nth-child(4) .feature-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+.feature-card-wrapper:nth-child(5) .feature-card {
+    background: url('pricing.jpg') no-repeat 35% center; /* Changed from center center to 75% center */
+    background-size: cover;
+    position: relative;
+}
+
+/* Add an overlay to ensure text remains readable */
+.feature-card-wrapper:nth-child(5) .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 15px;
+    z-index: 1;
+}
+/* Ensure content appears above the overlay */
+.feature-card-wrapper:nth-child(5) .feature-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+.feature-card-wrapper:nth-child(6) .feature-card {
+    background: url('candidate.jpg') no-repeat 50% center; /* Changed from center center to 75% center */
+    background-size: cover;
+    position: relative;
+}
+
+/* Add an overlay to ensure text remains readable */
+.feature-card-wrapper:nth-child(6) .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 15px;
+
+    z-index: 1;
+}
+/* Ensure content appears above the overlay */
+.feature-card-wrapper:nth-child(6) .feature-card > * {
+    position: relative;
+    z-index: 2;
+}
