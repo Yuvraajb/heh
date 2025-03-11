@@ -305,8 +305,8 @@ body {
     }
 }
 .features-content p{
-    font-family: 'inter';
-    font-size: 40px;
+    font-family: 'sans-serif';
+    font-size: 35px;
 }
 /* Add before the feature-container styles */
 .feature-card-wrapper.full-width {
@@ -331,7 +331,7 @@ body {
     width: 100%;
 }
 .features-heading{
-    font-size: 80px;
+    font-size: 75px;
 }
 .feature-card-wrapper.full-width .feature-content {
     flex: 1;
