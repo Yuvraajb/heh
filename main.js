@@ -70,8 +70,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const texts = [
     "'RecruitY took the stress out of hiring for our startup.'",
     "'In just two weeks, we had a team of A-players ready to go!'",
-    "'We’re in love, with our new hires, of course '",
-    "'RecruitY nailed our ideal candidate profile and delivered spot-on'",
+    "'We’re in love (with our new hires of course)'",
+    "'RecruitY nailed our ideal candidate profile'",
   ];
   let textIndex = 0;
   let charIndex = 0;
